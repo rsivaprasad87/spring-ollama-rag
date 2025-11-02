@@ -15,7 +15,7 @@ This repository is a runnable demo Spring Boot project that:
 1. Install and run [Ollama](https://ollama.ai) locally and pull the models you want (embedding + chat). Example:
    ```bash
    ollama pull mxbai-embed-large
-   ollama pull llama3.1
+   ollama pull phi4-mini
    ```
 
 2. Build and run the Spring app:
@@ -23,8 +23,7 @@ This repository is a runnable demo Spring Boot project that:
    mvn -f spring-ollama-rag/pom.xml clean package
    java -jar spring-ollama-rag/target/spring-ollama-rag-0.0.1-SNAPSHOT.jar
    ```
-
-3. Add plain text documents to `docs/` (a sample `sample-doc.txt` is included). The application ingests files at startup.
+3+. Add plain text documents to `docs/` (a sample `sample-doc.txt` is included). The application ingests files at startup.
 
 4. Test the chat endpoint:
    ```bash
@@ -34,5 +33,6 @@ This repository is a runnable demo Spring Boot project that:
    ```
 
 ## Notes
-- This is a demo for educational purposes. For production replace H2 + naive scan with a proper vector DB (Milvus, Pinecone, Weaviate) and add robust batching, retries, streaming, and chunking.
+-  ollama pull llama3.1 --> This model required more memory. So phi4-mini has beend used .
+- ollama rm llama3.1 -> remove the installed models 
 - If your Ollama responses have a different JSON shape, adjust `OllamaClient` parsing.
